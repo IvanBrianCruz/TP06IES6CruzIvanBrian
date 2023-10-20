@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Alumnos</title>
+    <link rel="stylesheet" href="/datos.css">
+</head>
+<body>
+    <h1>Lista de Alumnos</h1>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Género</th>
+            <th>Ciudad</th>
+            <th>Calle</th>
+            <th>Número de Casa</th>
+            <th>Fecha de Nacimiento</th>
+            <th>DNI</th>
+            <th>Correo Electrónico</th>
+            <th>Número de Teléfono</th>
+            <th>Carrera</th>
+            <th>Foto de Perfil</th>
+        </tr>
+        <tr th:each="alumno : ${alumnos}">
+            <td th:text="${alumno.name}">Nombre</td>
+            <td th:text="${alumno.saltname}">Apellido</td>
+            <td th:text="${alumno.gender}">Género</td>
+            <td th:text="${alumno.addressCity}">Ciudad</td>
+            <td th:text="${alumno.addressStreet}">Calle</td>
+            <td th:text="${alumno.addressNumber}">Número de Casa</td>
+            <td th:text="${alumno.birthdate}">Fecha de Nacimiento</td>
+            <td th:text="${alumno.DNI}">DNI</td>
+            <td th:text="${alumno.email}">Correo Electrónico</td>
+            <td th:text="${alumno.numerPhono}">Número de Teléfono</td>
+            <td th:text="${alumno.carrera}">Carrera</td>
+            <td th:if="${alumno.profilePicture}" th:src="@{'/' + ${alumno.profilePicture}}"></td>
+        </tr>
+    </table>
+</body>
+</html>

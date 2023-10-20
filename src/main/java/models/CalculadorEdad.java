@@ -1,4 +1,5 @@
-package ar.edu.ies6;
+package models;
+
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -24,7 +25,7 @@ public class CalculadorEdad {
     }
 
     public static void main(String[] args) {
-        String fechaNacimiento = "1999-03-03"; // Cambia esta fecha por la fecha de nacimiento del alumno
+        String fechaNacimiento = "1999-09-20"; // Cambia esta fecha por la fecha de nacimiento del alumno
 
         int edad = calcularEdad(fechaNacimiento);
         System.out.println("La edad es: " + edad);

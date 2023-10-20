@@ -1,6 +1,11 @@
-package ar.edu.ies6;
+package models;
 
-import java.util.Date;
+
+
+
+import java.time.LocalDate;
+
+
 
 public class Alumno {
  private String name;
@@ -9,7 +14,8 @@ public class Alumno {
  private String addressCity;
  private String addressStreet;
  private Integer addressNumber;
- private Date birthdate;
+
+ private LocalDate birthdate;
  private String DNI;
  private Boolean state;
  private String email;
@@ -52,10 +58,10 @@ public Integer getAddressNumber() {
 public void setAddressNumber(Integer addressNumber) {
 	this.addressNumber = addressNumber;
 }
-public Date getBirthdate() {
+public  LocalDate getBirthdate() {
 	return birthdate;
 }
-public void setBirthdate(Date birthdate) {
+public void setBirthdate(LocalDate birthdate) {
 	this.birthdate = birthdate;
 }
 public String getDNI() {
