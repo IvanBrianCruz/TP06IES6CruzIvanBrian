@@ -15,6 +15,7 @@
             <th>Calle</th>
             <th>Número de Casa</th>
             <th>Fecha de Nacimiento</th>
+            <th>Edad</th>
             <th>DNI</th>
             <th>Correo Electrónico</th>
             <th>Número de Teléfono</th>
@@ -29,6 +30,8 @@
             <td th:text="${alumno.addressStreet}">Calle</td>
             <td th:text="${alumno.addressNumber}">Número de Casa</td>
             <td th:text="${alumno.birthdate}">Fecha de Nacimiento</td>
+            <!-- Calcula la edad utilizando la clase AgeCalculator -->
+            <td th:text="${T(models.AgeCalculator).calculateAge(alumno.birthdate)}">Edad</td>
             <td th:text="${alumno.DNI}">DNI</td>
             <td th:text="${alumno.email}">Correo Electrónico</td>
             <td th:text="${alumno.numerPhono}">Número de Teléfono</td>
@@ -36,5 +39,10 @@
             <td th:if="${alumno.profilePicture}" th:src="@{'/' + ${alumno.profilePicture}}"></td>
         </tr>
     </table>
+    
+    <br>
+    
+    <a href="http://localhost:8080/" class="boton">Ir a la carga de alumnos</a>
+
 </body>
 </html>

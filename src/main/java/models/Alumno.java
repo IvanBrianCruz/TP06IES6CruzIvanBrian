@@ -22,6 +22,7 @@ public class Alumno {
  private String numerPhono;
  private String carrera;
  private String profilePicture;
+ 
 public String getName() {
 	return name;
 }
