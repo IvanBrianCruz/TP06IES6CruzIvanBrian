@@ -1,19 +1,22 @@
 package app;
 
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import models.Alumno;
+import models.GestorAlumnos;
 
 import java.util.List;
-import java.util.ArrayList;
+
 
 @Controller
 public class ControllersAlumno {
 
-    private List<Alumno> listaDeAlumnos = new ArrayList<>();
+    @Autowired
+    private GestorAlumnos gestorAlumnos;
 
     @GetMapping("/")
     public String mostrarFormulario(Model model) {
@@ -23,14 +26,15 @@ public class ControllersAlumno {
 
     @PostMapping("/")
     public String guardarAlumno(Alumno alumno) {
-        // Guardar el alumno en la lista
-        listaDeAlumnos.add(alumno);
+        // Guardar el alumno utilizando el gestor
+        gestorAlumnos.agregarAlumno(alumno);
         return "redirect:/datos"; // Redirigir a la vista que muestra los alumnos
     }
 
     @GetMapping("/datos")
     public String mostrarAlumnos(Model model) {
-        model.addAttribute("alumnos", listaDeAlumnos);
+        List<Alumno> alumnos = gestorAlumnos.obtenerAlumnos(); // Obtener la lista de alumnos del GestorAlumnos
+        model.addAttribute("alumnos", alumnos);
         return "datos"; // Vista para mostrar los alumnos
     }
 }
