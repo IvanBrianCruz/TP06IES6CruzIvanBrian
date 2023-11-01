@@ -70,3 +70,82 @@ input[type="checkbox"] {
     }
 }
 
+/* Estilos para el footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+
+.contact-info h4 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.contact-info p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* footer ojo */
+.footer-logo img {
+    max-width: 200px; /* Tamaño deseado */
+    height: auto;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.footer-logo:hover img {
+    transform: scale(1.1); /* Zoom al 110% */
+   filter: drop-shadow(0 0 4px red); /* Sombra personalizada */
+}
+
+.footer-logo img:hover {
+    transform: scale(1.1); /* Zoom al 110% */
+     filter: drop-shadow(0 0 4px red); /* Sombra personalizada */
+}
+
+
+
+/* estilo header atento */
+
+
+/* Style the header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Alinear elementos verticalmente */
+    align-items: center; /* Centrar verticalmente en el eje vertical */
+    justify-content: center; /* Centrar horizontalmente en el eje horizontal */
+}
+
+/* Style the logo */
+.header-logo img {
+    max-width: 200px; /* Tamaño deseado */
+    height: auto;
+    transition: transform 0.3s; /* Agregar efecto de zoom */
+    filter: drop-shadow(0 0 4px red); 
+}
+
+.header-logo img:hover {
+    transform: scale(1.1); /* Zoom al 110% al pasar el cursor */
+}
+
+/* Style the title */
+.header-title h1 {
+    font-size: 80px; /* Tamaño grande para el título */
+    margin: 0;
+}
+

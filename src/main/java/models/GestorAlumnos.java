@@ -16,4 +16,9 @@ public class GestorAlumnos {
     public List<Alumno> obtenerAlumnos() {
         return listaDeAlumnos;
     }
+
+	public void setAlumnos(List<Alumno> alumnos) {
+		// TODO Auto-generated method stub
+		
+	}
 }

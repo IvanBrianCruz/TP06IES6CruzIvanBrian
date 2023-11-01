@@ -4,10 +4,19 @@
 <head>
 	<title>Formulario de Alumno</title>
 	<link rel="stylesheet" href="/cargaDeAlumno.css">
-
+  <script src="https://kit.fontawesome.com/b408879b64.js" crossorigin="anonymous"></script>
 </head>
-
+ <header>
+        <div class="header-logo">
+            <img src="/img/logo.png" alt="IES N6 Logo">
+        </div>
+         <div class="header-title">
+            <h1>Instituto de Educación Superior</h1>
+        </div>
+        <br>
+    </header>
 <body>
+	<br>
 	<form action="/" method="post" th:object="${alumno}">
 		<!-- Campos para los datos del alumno -->
 		<label for="name">Nombre:</label>
@@ -38,14 +47,15 @@
 		<input type="number" id="addressNumber" name="addressNumber" th:field="*{addressNumber}">
 		<br>
 
-		
-<label for="birthdate">Fecha de Nacimiento:</label>
-<input type="date" id="birthdate" name="birthdate" th:field="*{birthdate}" >
 
-        <br>
-        
+		<label for="birthdate">Fecha de Nacimiento:</label>
+		<input type="date" id="birthdate" name="birthdate" th:field="*{birthdate}">
+
+		<br>
+
 		<label for="DNI">DNI:</label>
-		<input type="text" id="DNI" name="DNI" th:field="*{DNI}">
+		<input type="text" id="DNI" name="DNI" th:field="*{DNI}" required="required">
+
 		<br>
 
 
@@ -83,7 +93,25 @@
 		<br>
 
 		<button type="submit">Guardar Alumno</button>
+		<br>
 	</form>
+	<br>
 </body>
+
+<footer>
+	 <br>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="/img/logo.png" alt="IES N6 Logo">
+            </div>
+            <div class="contact-info">
+                <h4>IES N°6</h4>
+                <p><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> Dirección: Avenida Belgrano 456, Perico</p>
+                <p><i class="fa-solid fa-phone" style="color: #ffffff;"></i> Teléfono: (388) 421-1576</p>
+                
+                <p><i class="fa-regular fa-envelope" style="color: #ffffff;"></i> Correo Electrónico: ivan4912134@gmail.com</p>
+            </div>
+        </div>
+    </footer>
 
 </html>

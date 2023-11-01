@@ -66,11 +66,13 @@ public void setBirthdate(LocalDate birthdate) {
 	this.birthdate = birthdate;
 }
 public String getDNI() {
-	return DNI;
+    return DNI;
 }
-public void setDNI(String dNI) {
-	DNI = dNI;
+
+public void setDNI(String DNI) {
+    this.DNI = DNI;
 }
+
 public Boolean getState() {
 	return state;
 }

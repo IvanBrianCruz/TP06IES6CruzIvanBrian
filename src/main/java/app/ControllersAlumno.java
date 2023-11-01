@@ -5,11 +5,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
+
 import models.Alumno;
 import models.GestorAlumnos;
 
 import java.util.List;
+//import java.util.ArrayList;
+
 
 
 @Controller
@@ -37,4 +42,30 @@ public class ControllersAlumno {
         model.addAttribute("alumnos", alumnos);
         return "datos"; // Vista para mostrar los alumnos
     }
+    //METODOS PARA ELIMINAR UN ALUMNO DEL ARRAY
+    
+
+   
+
+  //método para elimar un registro
+    @GetMapping("/eliminarAlumno/{dni}")
+    public ModelAndView eliminarAlumno(@PathVariable String dni) {
+        List<Alumno> listaAlumnos = gestorAlumnos.obtenerAlumnos(); // Obtener la lista de alumnos
+
+        for (int i = 0; i < listaAlumnos.size(); i++) {
+            if (listaAlumnos.get(i).getDNI().equals(dni)) {
+                listaAlumnos.remove(i);
+                break; // Importante: salir del bucle una vez que se encuentra el alumno
+            }
+        }
+
+        // Actualizamos la lista de alumnos en el gestor (si es necesario)
+        gestorAlumnos.setAlumnos(listaAlumnos);
+
+        ModelAndView modelView = new ModelAndView("datos"); // Redirigir a la vista de datos
+        modelView.addObject("alumnos", listaAlumnos); // Usa el nombre correcto de la variable en tu vista
+        return modelView;
+    }
+   
+
 }
