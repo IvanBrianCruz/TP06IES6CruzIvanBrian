@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import models.Alumno;
-import models.GestorAlumnos;
+import app.models.Alumno;
+import app.models.GestorAlumnos;
+import app.service.alumnoservice;
+
 
 import java.util.List;
 //import java.util.ArrayList;
@@ -22,6 +24,8 @@ public class ControllersAlumno {
 
     @Autowired
     private GestorAlumnos gestorAlumnos;
+    @Autowired
+    alumnoservice alumnoservice;
 
     @GetMapping("/")
     public String mostrarFormulario(Model model) {
@@ -32,16 +36,18 @@ public class ControllersAlumno {
     @PostMapping("/")
     public String guardarAlumno(Alumno alumno) {
         // Guardar el alumno utilizando el gestor
-        gestorAlumnos.agregarAlumno(alumno);
+        //gestorAlumnos.agregarAlumno(alumno);
+        alumnoservice.guardarAlumno(alumno);
+        alumnoservice.buscarAlumno();
         return "redirect:/datos"; // Redirigir a la vista que muestra los alumnos
     }
-
-    @GetMapping("/datos")
-    public String mostrarAlumnos(Model model) {
-        List<Alumno> alumnos = gestorAlumnos.obtenerAlumnos(); // Obtener la lista de alumnos del GestorAlumnos
-        model.addAttribute("alumnos", alumnos);
-        return "datos"; // Vista para mostrar los alumnos
-    }
+// no tocar hasta aqui
+@GetMapping("/datos")
+public String mostrarAlumnos(Model model) {
+    List<Alumno> alumnos = alumnoservice.buscarAlumno(); // Obtener la lista de alumnos desde la base de datos
+    model.addAttribute("alumnos", alumnos);
+    return "datos"; // Vista para mostrar los alumnos
+}
     //METODOS PARA ELIMINAR UN ALUMNO DEL ARRAY
     
 

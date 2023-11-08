@@ -1,28 +1,42 @@
-package models;
+package app.models;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 
+import jakarta.persistence.Id;
 
-
-
+import org.springframework.stereotype.Component;
 import java.time.LocalDate;
 
-
-
+@Component
+@Entity
 public class Alumno {
- private String name;
- private String saltname;
- private String gender;
- private String addressCity;
- private String addressStreet;
- private Integer addressNumber;
-
- private LocalDate birthdate;
- private String DNI;
- private Boolean state;
- private String email;
- private String numerPhono;
- private String carrera;
- private String profilePicture;
- 
+	@Column
+    private String name;
+	@Column
+    private String saltname;
+	@Column
+    private String gender;
+	@Column
+    private String addressCity;
+	@Column
+    private String addressStreet;
+	@Column
+    private Integer addressNumber;
+	@Column
+    private LocalDate birthdate;
+    @Id 
+    //@GeneratedValue (strategy = GenerationType.AUTO)
+    private String DNI;
+	@Column
+    private Boolean state;
+	@Column
+    private String email;
+	@Column
+    private String numerPhono;
+	@Column
+    private String carrera;
+	@Column
+    private String profilePicture;
 public String getName() {
 	return name;
 }
@@ -72,8 +86,7 @@ public String getDNI() {
 public void setDNI(String DNI) {
     this.DNI = DNI;
 }
-
-public Boolean getState() {
+public Boolean getState(boolean b) {
 	return state;
 }
 public void setState(Boolean state) {

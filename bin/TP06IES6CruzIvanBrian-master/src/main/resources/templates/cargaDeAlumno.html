@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+
+<head>
+	<title>Formulario de Alumno</title>
+	<link rel="stylesheet" href="/cargaDeAlumno.css">
+  <script src="https://kit.fontawesome.com/b408879b64.js" crossorigin="anonymous"></script>
+</head>
+ <header>
+        <div class="header-logo">
+            <img src="/img/logo.png" alt="IES N6 Logo">
+        </div>
+         <div class="header-title">
+            <h1>Instituto de Educación Superior</h1>
+        </div>
+        <br>
+    </header>
+<body>
+	<br>
+	<form action="/" method="post" th:object="${alumno}">
+		<!-- Campos para los datos del alumno -->
+		<label for="name">Nombre:</label>
+		<input type="text" id="name" name="name" th:field="*{name}">
+		<br>
+
+		<label for="saltname">Apellido:</label>
+		<input type="text" id="saltname" name="saltname" th:field="*{saltname}">
+		<br>
+
+		<label for="gender">Género:</label>
+		<select id="gender" name="gender" th:field="*{gender}">
+			<option value="M">Masculino</option>
+			<option value="F">Femenino</option>
+			<option value="O">Otros</option>
+		</select>
+		<br>
+
+		<label for="addressCity">Ciudad:</label>
+		<input type="text" id="addressCity" name="addressCity" th:field="*{addressCity}">
+		<br>
+
+		<label for="addressStreet">Calle:</label>
+		<input type="text" id="addressStreet" name="addressStreet" th:field="*{addressStreet}">
+		<br>
+
+		<label for="addressNumber">Número de Casa:</label>
+		<input type="number" id="addressNumber" name="addressNumber" th:field="*{addressNumber}">
+		<br>
+
+
+		<label for="birthdate">Fecha de Nacimiento:</label>
+		<input type="date" id="birthdate" name="birthdate" th:field="*{birthdate}">
+
+		<br>
+
+		<label for="DNI">DNI:</label>
+		<input type="text" id="DNI" name="DNI" th:field="*{DNI}" required="required">
+
+		<br>
+
+
+
+		<label for="email">Correo Electrónico:</label>
+		<input type="email" id="email" name="email" th:field="*{email}">
+		<br>
+
+		<label for="numerPhono">Número de Teléfono:</label>
+		<input type="tel" id="numerPhono" name="numerPhono" th:field="*{numerPhono}">
+		<br>
+
+		<label for="carrera">Carrera:</label>
+		<select id="carrera" name="carrera" th:field="*{carrera}" class="select-carrera">
+			<option value="PROF DE. INGLES">PROF DE. INGLES</option>
+			<option value="PROF. DE EDUCACIÓN SECUNDARIA EN MATEMÁTICA">PROF. DE EDUCACIÓN SECUNDARIA EN MATEMÁTICA
+			</option>
+			<option value="TEC. EN GESTIÓN DE LOS RECURSOS HIDRICOS CON ORIENTACION EN RIEGO">
+				TEC. EN GESTIÓN DE LOS RECURSOS HIDRICOS CON ORIENTACION EN RIEGO
+			</option>
+
+			<option value="PROF. DE EDUCACIÓN SECUNDARIA EN INFORMATICA">PROF. DE EDUCACIÓN SECUNDARIA EN INFORMATICA
+			</option>
+			<option value="PROF. DE EDUCACIÓN SECUNDARIA EN CIENCIAS DE LA ADMINISTRACIÓN">PROF. DE EDUCACIÓN SECUNDARIA
+				EN CIENCIAS DE LA ADMINISTRACIÓN</option>
+			<option value="TEC. EN CIENCIA DE DATOS E INTELIGENCIA ARTIFICIAL">TEC. EN CIENCIA DE DATOS E INTELIGENCIA
+				ARTIFICIAL</option>
+		</select>
+
+		<br>
+		<br>
+
+		<label for="profilePicture">Foto de Perfil:</label>
+		<input type="file" id="profilePicture" name="profilePicture" th:field="*{profilePicture}">
+		<br>
+
+		<button type="submit">Guardar Alumno</button>
+		<br>
+	</form>
+	<br>
+</body>
+
+<footer>
+	 <br>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="/img/logo.png" alt="IES N6 Logo">
+            </div>
+            <div class="contact-info">
+                <h4>IES N°6</h4>
+                <p><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> Dirección: Avenida Belgrano 456, Perico</p>
+                <p><i class="fa-solid fa-phone" style="color: #ffffff;"></i> Teléfono: (388) 421-1576</p>
+                
+                <p><i class="fa-regular fa-envelope" style="color: #ffffff;"></i> Correo Electrónico: ivan4912134@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+
+</html>

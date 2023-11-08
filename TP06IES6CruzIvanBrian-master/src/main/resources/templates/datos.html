@@ -42,7 +42,7 @@
             <td th:text="${alumno.addressNumber}">Número de Casa</td>
             <td th:text="${alumno.birthdate} ? ${alumno.birthdate} : '0'">Fecha de Nacimiento</td>
               <!-- Calcula la edad utilizando la clase AgeCalculator -->
-<td th:if="${alumno.birthdate != null}" th:text="${T(models.AgeCalculator).calculateAge(alumno.birthdate)}">Edad</td>
+<td th:if="${alumno.birthdate != null}" th:text="${T(app.models.AgeCalculator).calculateAge(alumno.birthdate)}">Edad</td>
 <td th:if="${alumno.birthdate == null}" th:text="0">Edad</td>
             <td th:text="${alumno.DNI}">DNI</td>
             <td th:text="${alumno.email}">Correo Electrónico</td>
