@@ -1,0 +1,137 @@
+<head>
+    <title>Formulario de Alumno</title>
+    <link rel="stylesheet" href="/cargaDeProfesor.css">
+    <script src="https://kit.fontawesome.com/b408879b64.js" crossorigin="anonymous"></script>
+</head>
+<header>
+    <div class="header-logo">
+        <img src="/img/logo.png" alt="IES N6 Logo">
+    </div>
+    <div class="header-title">
+        <h1>Instituto de Educación Superior</h1>
+    </div>
+    <br>
+    <nav>
+        <div class="navbar">
+            <ul>
+                <li class="opciones2"><a href="http://localhost:8080/"><i class="fas fa-home"></i>Inicio</a></li>
+                <li class="opciones1"><a href="http://localhost:8080/cargarAlumno"><i
+                            class="fas fa-user-plus"></i>Cargar Alumno</a></li>
+                <li class="opciones2"><a href="http://localhost:8080/cargarProfesor"><i
+                            class="fas fa-user-tie"></i>Cargar Docente</a></li>
+                <li class="opciones3"><a href="http://localhost:8080/datos"><i class="fas fa-address-book"></i>Datos
+                        Alumnos</a></li>
+                <li class="opciones4"><a href=""><i class="fas fa-address-card"></i>Datos Docentes</a></li>
+            </ul>
+            <div class="busqueda">
+                <input type="text" placeholder="Buscar...">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="perfil">
+                <div class="imagen-container">
+                    <img src="/img/perfil.png" alt="Tu imagen" class="imagen-perfil">
+                </div>
+
+            </div>
+
+
+        </div>
+    </nav>
+</header>
+
+<body>
+    <br>
+
+    <form action="/cargarProfesor" method="post" th:object="${profesor}" enctype="multipart/form-data">
+
+        <h1 class="titulo">ALTA DE UN PROFESOR</h1>
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" th:field="*{name}">
+        <br>
+
+        <label for="lastname">Apellido:</label>
+        <input type="text" id="lastname" name="lastname" th:field="*{lastname}">
+        <br>
+
+        <label for="gender">Género:</label>
+        <select id="gender" name="gender" th:field="*{gender}">
+            <option value="M">Masculino</option>
+            <option value="F">Femenino</option>
+            <option value="O">Otros</option>
+        </select>
+        <br>
+
+        <label for="addressCity">Ciudad:</label>
+        <input type="text" id="addressCity" name="addressCity" th:field="*{addressCity}">
+        <br>
+
+        <label for="addressStreet">Calle:</label>
+        <input type="text" id="addressStreet" name="addressStreet" th:field="*{addressStreet}">
+        <br>
+
+        <label for="addressNumber">Número de Casa:</label>
+        <input type="number" id="addressNumber" name="addressNumber" th:field="*{addressNumber}">
+        <br>
+
+        <label for="birthdate">Fecha de Nacimiento:</label>
+        <input type="date" id="birthdate" name="birthdate" th:field="*{birthdate}">
+        <br>
+
+        <label for="DNI">DNI:</label>
+        <input type="text" id="DNI" name="DNI" th:field="*{DNI}" required="required">
+        <br>
+
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="email" th:field="*{email}">
+        <br>
+
+        <label for="phoneNumber">Número de Teléfono:</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" th:field="*{phoneNumber}">
+        <br>
+
+        <label for="specialization">Materia a dictar:</label>
+        <select id="specialization" name="specialization" th:field="*{specialization}" class="select-specialization">
+            <option value="Didactica">Didactica</option>
+            <option value="Historia y politica">Historia y politica</option>
+            <option value="Filosofia">Filosofia</option>
+            <option value="Practica II">Practica II</option>
+            <option value="Ingles">Ingles</option>
+            <option value="Internet y entornos">Internet y entornos</option>
+            <option value="Programacion y base de datos">Programacion y base de datos</option>
+            <option value="Sujeto de la Educación">Sujeto de la Educación</option>
+            
+        </select>
+        <br>
+        <br>
+<!-- 
+       <label for="profilePicture">Foto de Perfil:</label>
+        <input type="file" id="profilePicture" name="profilePicture" th:field="*{profilePicture}">
+        
+    -->
+     
+        <br>
+        <button type="submit">Guardar Profesor</button>
+        <br>
+    </form>
+    <br>
+</body>
+
+<footer>
+    <br>
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="/img/logo.png" alt="IES N6 Logo">
+        </div>
+        <div class="contact-info">
+            <h4>IES N°6</h4>
+            <p><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> Dirección: Avenida Belgrano 456, Perico
+            </p>
+            <p><i class="fa-solid fa-phone" style="color: #ffffff;"></i> Teléfono: (388) 421-1576</p>
+
+            <p><i class="fa-regular fa-envelope" style="color: #ffffff;"></i> Correo Electrónico: ivan4912134@gmail.com
+            </p>
+        </div>
+    </div>
+</footer>
+
+</html>

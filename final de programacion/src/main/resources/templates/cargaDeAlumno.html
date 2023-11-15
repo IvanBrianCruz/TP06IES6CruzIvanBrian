@@ -14,11 +14,36 @@
             <h1>Instituto de Educación Superior</h1>
         </div>
         <br>
+		<nav>
+            <div class="navbar">
+                <ul >
+					<li class="opciones2"><a href="http://localhost:8080/"><i class="fas fa-home"></i>Inicio</a></li>
+                    <li class="opciones1"><a href="http://localhost:8080/cargarAlumno"><i class="fas fa-user-plus"></i>Cargar Alumno</a></li>
+                    <li class="opciones2"><a href="http://localhost:8080/cargarProfesor"><i class="fas fa-user-tie"></i>Cargar Docente</a></li>
+                    <li class="opciones3"><a href="http://localhost:8080/datos"><i class="fas fa-address-book"></i>Datos Alumnos</a></li>
+                    <li class="opciones4"><a href="http://localhost:8080/datosProfesores"><i class="fas fa-address-card"></i>Datos Docentes</a></li>
+                </ul>
+                <div class="busqueda">
+                    <input type="text" placeholder="Buscar...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </div>
+				<div class="perfil">
+					<div class="imagen-container">
+						<img src="/img/perfil.png" alt="Tu imagen" class="imagen-perfil">
+					</div>
+					
+				</div>
+				
+				
+            </div>
+        </nav>
     </header>
 <body>
+	
 	<br>
-	<form action="/" method="post" th:object="${alumno}">
+	<form action="/cargarAlumno" method="post" th:object="${alumno}">
 		<!-- Campos para los datos del alumno -->
+		<h1 class="titulo">CARGA DE UN ALUMNO</h1>
 		<label for="name">Nombre:</label>
 		<input type="text" id="name" name="name" th:field="*{name}">
 		<br>

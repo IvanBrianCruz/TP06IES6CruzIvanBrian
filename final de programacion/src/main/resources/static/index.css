@@ -1,0 +1,186 @@
+body {
+    background-image: url('fondo.png');
+    background-size: cover; /* Esto asegura que la imagen se ajuste al tamaño de la ventana del navegador */
+    background-repeat: no-repeat; /* Esto evita que la imagen se repita */
+    background-attachment: fixed; /* Esto asegura que la imagen se mantenga fija mientras te desplazas por la página */
+}
+/* Estilos para el footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+
+.contact-info h4 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.contact-info p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* footer ojo */
+.footer-logo img {
+    max-width: 200px; /* Tamaño deseado */
+    height: auto;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.footer-logo:hover img {
+    transform: scale(1.1); /* Zoom al 110% */
+   filter: drop-shadow(0 0 4px red); /* Sombra personalizada */
+}
+
+.footer-logo img:hover {
+    transform: scale(1.1); /* Zoom al 110% */
+     filter: drop-shadow(0 0 4px red); /* Sombra personalizada */
+}
+
+
+
+/* estilo header atento */
+
+
+/* Style the header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Alinear elementos verticalmente */
+    align-items: center; /* Centrar verticalmente en el eje vertical */
+    justify-content: center; /* Centrar horizontalmente en el eje horizontal */
+}
+
+/* Style the logo */
+.logoies img {
+    max-width: 200px; /* Tamaño deseado */
+    height: auto;
+    transition: transform 0.3s; /* Agregar efecto de zoom */
+    filter: drop-shadow(0 0 4px red); 
+}
+
+.logoies img:hover {
+    transform: scale(1.1); /* Zoom al 110% al pasar el cursor */
+}
+
+/* Style the title */
+.header-title h1 {
+    font-size: 80px; /* Tamaño grande para el título */
+    margin: 0;
+}
+
+  
+  .titulo {
+    text-align: center; /* Centrar el texto */
+    color: #333; /* Cambiar el color del texto */
+    font-size: 3.5em; /* Tamaño del texto */
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+/*estilos del munu*/
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.navbar ul li a i {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.busqueda {
+    display: flex; /* Utilizamos flexbox */
+    align-items: center; /* Alinea verticalmente */
+    margin-left: 210px
+}
+
+.busqueda input {
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 5px;
+   
+}
+
+.busqueda button {
+    background-color: #444;
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+}
+
+
+
+
+.opciones1:hover, .opciones2:hover, .opciones3:hover, .opciones4:hover {
+    filter: drop-shadow(0 0 4px red);
+}
+
+/* Estilos para la imagen y el contenedor */
+.imagen-container {
+    padding: 10px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: 20px;
+}
+
+.imagen-perfil {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+.logoies {
+    text-align: center;
+  }
+
+  .header-title{
+    text-align: center;
+  }
+
+  .descripciondeboton{
+    text-align: center;
+    color: antiquewhite;
+  }
+
+  .img-fluid:hover{
+    filter: drop-shadow(0 0 10px rgb(248, 248, 248));
+  }
+
+  .d-block{
+    height: 450px;
+  }
