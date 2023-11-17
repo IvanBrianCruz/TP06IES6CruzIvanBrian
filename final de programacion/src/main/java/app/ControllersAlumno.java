@@ -15,6 +15,7 @@ import app.service.alumnoservice;
 
 import java.util.List;
 //import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 @Controller
 public class ControllersAlumno {
@@ -31,9 +32,12 @@ public class ControllersAlumno {
 
     @GetMapping("/cargarAlumno")
     public String mostrarFormularioAlumno(Model model) {
-        model.addAttribute("alumno", new Alumno());
+        Alumno nuevoAlumno = new Alumno();
+        //nuevoAlumno.setState(true); // Establecer el estado como true
+        model.addAttribute("alumno", nuevoAlumno);
         return "cargaDeAlumno"; // Vista del formulario
     }
+    
 
     @PostMapping("/cargarAlumno")
     public String guardarAlumno(Alumno alumno) {
@@ -45,12 +49,19 @@ public class ControllersAlumno {
     }
 
     // no tocar hasta aqui esto muestra los datos a db a la vista
-    @GetMapping("/datos")
-    public String mostrarAlumnos(Model model) {
-        List<Alumno> alumnos = alumnoservice.buscarAlumno(); // Obtener la lista de alumnos desde la base de datos
-        model.addAttribute("alumnos", alumnos);
-        return "datos"; // Vista para mostrar los alumnos
-    }
+   @GetMapping("/datos")
+public String mostrarAlumnos(Model model) {
+    List<Alumno> alumnos = alumnoservice.buscarAlumno(); // Obtener la lista de alumnos desde la base de datos
+    
+    // Filtrar la lista de alumnos para mostrar solo aquellos con state en true
+    List<Alumno> alumnosConEstadoTrue = alumnos.stream()
+            .filter(alumno -> Boolean.TRUE.equals(alumno.getState())) // Filtrar por state = true
+            .collect(Collectors.toList());
+    
+    model.addAttribute("alumnos", alumnosConEstadoTrue);
+    return "datos"; // Vista para mostrar los alumnos
+}
+
     // METODOS PARA ELIMINAR UN ALUMNO DEL ARRAY
 
     @GetMapping("/eliminarAlumno/{dni}")
@@ -74,6 +85,6 @@ public class ControllersAlumno {
         alumnoservice.guardarAlumno(alumno);
         return "redirect:/datos"; // Redirigir a la vista que muestra los alumnos
     }
-//controlador de profesor ==========================================================================================================/
+//controlador de profesor no va aqui ==========================================================================================================/
 
 }

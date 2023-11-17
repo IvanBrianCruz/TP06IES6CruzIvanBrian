@@ -9,6 +9,6 @@ import org.springframework.data.repository.CrudRepository;
 @Repository 
 public interface alumnoRepository extends CrudRepository <Alumno, String > {
 
-    void deleteByDNI(String dni);
+    //void deleteByDNI(String dni);
 
 }

@@ -20,7 +20,7 @@
 				<li class="opciones1"><a href="http://localhost:8080/cargarAlumno"><i class="fas fa-user-plus"></i>Cargar Alumno</a></li>
 				<li class="opciones2"><a href="http://localhost:8080/cargarProfesor"><i class="fas fa-user-tie"></i>Cargar Docente</a></li>
 				<li class="opciones3"><a href="http://localhost:8080/datos"><i class="fas fa-address-book"></i>Datos Alumnos</a></li>
-				<li class="opciones4"><a href="#"><i class="fas fa-address-card"></i>Datos Docentes</a></li>
+				<li class="opciones4"><a href="http://localhost:8080/datosProfesores"><i class="fas fa-address-card"></i>Datos Docentes</a></li>
 			</ul>
 			<div class="busqueda">
 				<input type="text" placeholder="Buscar...">
@@ -76,10 +76,10 @@
 		<input type="date" id="birthdate" name="birthdate" th:field="*{birthdate}">
 
 		<br>
-
+<div class="oculatarDNI">
 		<label for="DNI">DNI:</label>
 		<input type="text" id="DNI" name="DNI" th:field="*{DNI}" required="required">
-
+	</div>
 		<br>
 
 
@@ -110,6 +110,8 @@
 		</select>
 
 		<br>
+		<input class="ocularStatu" type="state" id="state" name="state" th:field="*{state}" value="1">
+
 		<br>
       
 

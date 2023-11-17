@@ -27,8 +27,10 @@ public class Alumno {
     @Id 
     //@GeneratedValue (strategy = GenerationType.AUTO)
     private String DNI;
-	@Column
-    private Boolean state;
+	@Column(name = "state")
+private Boolean state; 
+
+
 	@Column
     private String email;
 	@Column
@@ -86,9 +88,12 @@ public String getDNI() {
 public void setDNI(String DNI) {
     this.DNI = DNI;
 }
-public Boolean getState(boolean b) {
+//public Boolean isState() {
+
+public Boolean getState() {
 	return state;
 }
+
 public void setState(Boolean state) {
 	this.state = state;
 }

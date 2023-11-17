@@ -15,64 +15,60 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 //import app.models.GestorAlumnos;
 
-
 import app.models.Profesor;
 //import app.service.UploadFileService;
 import app.service.ProfesorService;
 
 //import java.io.IOException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class ControllersProfesor {
-    
-@Autowired
-ProfesorService profesorService;
 
+    @Autowired
+    ProfesorService profesorService;
 
-@PostMapping("/cargarProfesor")
-public String guardarProfesor(@ModelAttribute Profesor profesor) {
-    try {
+    @PostMapping("/cargarProfesor")
+    public String guardarProfesor(@ModelAttribute Profesor profesor) {
         profesorService.guardarProfesor(profesor); // Guardar al profesor
         return "redirect:/datosProfesores"; // Redireccionar después de guardar
-    } catch (Exception e) {
-        // Manejo de errores
-        return "redirect:/error";
+
     }
-}
 
+    @GetMapping("/cargarProfesor")
+    public String mostrarFormularioProfesor(Model model) {
+        model.addAttribute("profesor", new Profesor());
+        return "cargaDeProfesor";
+    }
 
+    @GetMapping("/datosProfesores")
+    public String mostrarProfesores(Model model) {
+        List<Profesor> profesores = profesorService.buscarProfesores();
 
+        List<Profesor> profesoresConEstadoTreu = profesores.stream()
+        .filter(profesor -> Boolean.TRUE.equals(profesor.getState()))
+        .collect(Collectors.toList());
+        model.addAttribute("profesores", profesoresConEstadoTreu);
+        return "datosProfesores"; // Vista para mostrar los profesores
+    }
 
-@GetMapping("/cargarProfesor")
-public String mostrarFormularioProfesor(Model model) {
-    model.addAttribute("profesor", new Profesor());
-    return "cargaDeProfesor";
-}
+    @GetMapping("/eliminarProfesor/{dni}")
+    public String eliminarProfesor(@PathVariable String dni) {
+        profesorService.eliminarProfesorPorDNI(dni);
+        return "redirect:/datosProfesores";
+    }
 
-@GetMapping("/datosProfesores")
-public String mostrarProfesores(Model model) {
-    List<Profesor> profesores = profesorService.buscarProfesores();
-    model.addAttribute("profesores", profesores);
-    return "datosProfesores"; // Vista para mostrar los profesores
-}
+    @GetMapping("/editarProfesor/{dni}")
+    public String editarProfesor(@PathVariable String dni, Model model) {
+        Profesor profesor = profesorService.buscarProfesorPorDNI(dni);
+        model.addAttribute("profesor", profesor);
+        return "edicionProfesor";
+    }
 
-@GetMapping("/eliminarProfesor/{dni}")
-public String eliminarProfesor(@PathVariable String dni) {
-    profesorService.eliminarProfesorPorDNI(dni);
-    return "redirect:/datosProfesores";
-}
-
-@GetMapping("/editarProfesor/{dni}")
-public String editarProfesor(@PathVariable String dni, Model model) {
-    Profesor profesor = profesorService.buscarProfesorPorDNI(dni);
-    model.addAttribute("profesor", profesor);
-    return "edicionProfesor";
-}
-
-@PostMapping("/actualizarProfesor")
-public String actualizarProfesor(Profesor profesor) {
-    profesorService.guardarProfesor(profesor);
-    return "redirect:/datosProfesores";
-}
+    @PostMapping("/actualizarProfesor")
+    public String actualizarProfesor(Profesor profesor) {
+        profesorService.guardarProfesor(profesor);
+        return "redirect:/datosProfesores";
+    }
 }

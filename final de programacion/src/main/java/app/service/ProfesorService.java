@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import jakarta.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProfesorService {
@@ -20,7 +21,12 @@ public class ProfesorService {
 
     @Transactional
     public void eliminarProfesorPorDNI(String dni) {
-        profesorRepository.deleteByDNI(dni);
+         Optional<Profesor> optionalProfesor = profesorRepository.findById(dni);
+
+    optionalProfesor.ifPresent(Profesor -> {
+        Profesor.setState(false);
+        profesorRepository.save(Profesor);
+    });
     }
 
     public List<Profesor> buscarProfesores() {

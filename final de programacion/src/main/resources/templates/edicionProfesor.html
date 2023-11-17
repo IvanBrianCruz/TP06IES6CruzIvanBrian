@@ -21,7 +21,7 @@
                             class="fas fa-user-tie"></i>Cargar Docente</a></li>
                 <li class="opciones3"><a href="http://localhost:8080/datos"><i class="fas fa-address-book"></i>Datos
                         Alumnos</a></li>
-                <li class="opciones4"><a href=""><i class="fas fa-address-card"></i>Datos Docentes</a></li>
+                <li class="opciones4"><a href="http://localhost:8080/datosProfesores"><i class="fas fa-address-card"></i>Datos Docentes</a></li>
             </ul>
             <div class="busqueda">
                 <input type="text" placeholder="Buscar...">
@@ -44,7 +44,7 @@
 
     <form th:action="@{/actualizarProfesor}" method="post" th:object="${profesor}">
 
-        <h1 class="titulo">ALTA DE UN PROFESOR</h1>
+        <h1 class="titulo">EDICION DE UN PROFESOR</h1>
         <label for="name">Nombre:</label>
         <input type="text" id="name" name="name" th:field="*{name}">
         <br>
@@ -76,11 +76,13 @@
         <label for="birthdate">Fecha de Nacimiento:</label>
         <input type="date" id="birthdate" name="birthdate" th:field="*{birthdate}">
         <br>
-
+        <div class="oculatarDNI">
         <label for="DNI">DNI:</label>
         <input type="text" id="DNI" name="DNI" th:field="*{DNI}" required="required">
-        <br>
+    
+        </div>
 
+<br>
         <label for="email">Correo Electrónico:</label>
         <input type="email" id="email" name="email" th:field="*{email}">
         <br>
@@ -108,6 +110,8 @@
         <input type="file" id="profilePicture" name="profilePicture" th:field="*{profilePicture}">
         
     -->
+    <input class="ocularStatu" type="state" id="state" name="state" th:field="*{state}" value="1">
+
      
         <br>
         <button type="submit">Guardar Profesor</button>
