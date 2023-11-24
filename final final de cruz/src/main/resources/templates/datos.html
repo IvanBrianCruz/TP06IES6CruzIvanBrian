@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+
+<head>
+    <title>Lista de Alumnos</title>
+    <link rel="stylesheet" href="/datos.css">
+    <script src="https://kit.fontawesome.com/b408879b64.js" crossorigin="anonymous"></script>
+</head>
+<header>
+    <div class="header-logo">
+        <img src="/img/logo.png" alt="IES N6 Logo">
+    </div>
+    <div class="header-title">
+        <h1>Instituto de Educación Superior</h1>
+    </div>
+    <br>
+    <nav>
+        <div class="navbar">
+            <ul >
+                <li class="opciones2"><a href="http://localhost:8080/"><i class="fas fa-home"></i>Inicio</a></li>
+                <li class="opciones1"><a href="http://localhost:8080/cargarAlumno"><i class="fas fa-user-plus"></i>Cargar Alumno</a></li>
+                <li class="opciones2"><a href="http://localhost:8080/cargarProfesor"><i class="fas fa-user-tie"></i>Cargar Docente</a></li>
+                <li class="opciones3"><a href="http://localhost:8080/datos"><i class="fas fa-address-book"></i>Datos Alumnos</a></li>
+                <li class="opciones4"><a href="http://localhost:8080/datosProfesores"><i class="fas fa-address-card"></i>Datos Docentes</a></li>
+            </ul>
+            <div class="busqueda">
+                <input type="text" placeholder="Buscar...">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="perfil">
+                <div class="imagen-container">
+                    <img src="/img/perfil.png" alt="Tu imagen" class="imagen-perfil">
+                </div>
+                
+            </div>
+            
+            
+        </div>
+    </nav>
+</header>
+
+<body>
+    <br>
+    <h1>Lista de Alumnos</h1>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Género</th>
+            <th>Ciudad</th>
+            <th>Calle</th>
+            <th>Número de Casa</th>
+            <th>Fecha de Nacimiento</th>
+            <th>Edad</th>
+            <th>DNI</th>
+            <th>Correo Electrónico</th>
+            <th>Número de Teléfono</th>
+            <th>Carrera</th>
+            <th>Edicion</th>
+        </tr>
+        <tr th:each="alumno : ${alumnos}">
+            <td th:text="${alumno.name}">Nombre</td>
+            <td th:text="${alumno.saltname}">Apellido</td>
+            <td th:text="${alumno.gender}">Género</td>
+            <td th:text="${alumno.addressCity}">Ciudad</td>
+            <td th:text="${alumno.addressStreet}">Calle</td>
+            <td th:text="${alumno.addressNumber}">Número de Casa</td>
+            <td th:text="${alumno.birthdate} ? ${alumno.birthdate} : '0'">Fecha de Nacimiento</td>
+            <!-- Calcula la edad utilizando la clase AgeCalculator -->
+            <td th:if="${alumno.birthdate != null}"
+                th:text="${T(app.models.AgeCalculator).calculateAge(alumno.birthdate)}">Edad</td>
+            <td th:if="${alumno.birthdate == null}" th:text="0">Edad</td>
+            <td th:text="${alumno.DNI}">DNI</td>
+            <td th:text="${alumno.email}">Correo Electrónico</td>
+            <td th:text="${alumno.numerPhono}">Número de Teléfono</td>
+            <td th:text="${alumno.carrera}">Carrera</td>
+            <td>
+                <div class="contenedor-botones">
+                    <!-- Botones -->
+                    <a th:href="@{/eliminarAlumno/{dni}(dni=${alumno.DNI})}" class="boton-eliminar boton-accion">
+                        <i class="fa-solid fa-trash" style="color: black;"></i> Eliminar
+                    </a>
+                
+                    <a th:href="@{'/editarAlumno/' + ${alumno.DNI}}" class="boton-editar boton-accion">
+                        <i class="fa-solid fa-pen" style="color: black;"></i> Editar
+                    </a>
+                </div>
+                
+            </td>
+        </tr>
+    </table>
+
+    <br>
+
+    <a href="http://localhost:8080/" class="boton">Ir a la carga de alumnos</a>
+    <br>
+</body>
+<br>
+<footer>
+    <br>
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="/img/logo.png" alt="IES N6 Logo">
+        </div>
+        <div class="contact-info">
+            <h4>IES N°6</h4>
+            <p><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> Dirección: Avenida Belgrano 456, Perico
+            </p>
+            <p><i class="fa-solid fa-phone" style="color: #ffffff;"></i> Teléfono: (388) 421-1576</p>
+
+            <p><i class="fa-regular fa-envelope" style="color: #ffffff;"></i> Correo Electrónico: ivan4912134@gmail.com
+            </p>
+        </div>
+    </div>
+</footer>
+
+</html>

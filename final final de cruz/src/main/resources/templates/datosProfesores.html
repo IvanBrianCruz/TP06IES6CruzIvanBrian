@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+
+<head>
+    <title>Formulario de Alumno</title>
+    <link rel="stylesheet" href="/datosProfesores.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/b408879b64.js" crossorigin="anonymous"></script>
+</head>
+<header>
+    <div class="header">
+        <div class="header-logo">
+            <img src="/img/logo.png" alt="IES N6 Logo">
+        </div>
+        <br>
+        <div class="header-title">
+            <h1>Instituto de Educación Superior</h1>
+        </div>
+    </div>
+
+    <br>
+    <nav>
+        <div class="navbar">
+            <ul>
+                <li class="opciones2"><a href="http://localhost:8080/"><i class="fas fa-home"></i>Inicio</a></li>
+                <li class="opciones1"><a href="http://localhost:8080/cargarAlumno"><i
+                            class="fas fa-user-plus"></i>Cargar Alumno</a></li>
+                <li class="opciones2"><a href="http://localhost:8080/cargarProfesor"><i
+                            class="fas fa-user-tie"></i>Cargar Docente</a></li>
+                <li class="opciones3"><a href="http://localhost:8080/datos"><i class="fas fa-address-book"></i>Datos
+                        Alumnos</a></li>
+                <li class="opciones4"><a href="http://localhost:8080/datosProfesores"><i
+                            class="fas fa-address-card"></i>Datos Docentes</a></li>
+            </ul>
+            <div class="busqueda">
+                <input type="text" placeholder="Buscar...">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="perfil">
+                <div class="imagen-container">
+                    <img src="/img/perfil.png" alt="Tu imagen" class="imagen-perfil">
+                </div>
+
+            </div>
+
+
+        </div>
+    </nav>
+</header>
+
+<body>
+
+    <br>
+
+    <div class="container">
+        <h1 style="color: beige;">Lista de Profesores</h1>
+
+        <div class="row">
+            <div th:each="profesor : ${profesores}" class="col-md-6">
+                <div class="card mb-4">
+                    <img src="/img/perfil.png" class="card-img-top" alt="Profile Picture">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${profesor.name + ' ' + profesor.lastname}">Nombre del Profesor
+                        </h5>
+                        <p class="card-text" th:text="'Materia a dictar: ' + ${profesor.specialization}">Materia:</p>
+                        <p class="card-text" th:text="'Ciudad: ' + ${profesor.addressCity}">Ciudad:</p>
+                        <p class="card-text" th:text="'Calle: ' + ${profesor.addressStreet}">Calle:</p>
+                        <p class="card-text" th:text="'Número de Casa: ' + ${profesor.addressNumber}">Número de Casa:
+                        </p>
+                        <p class="card-text" th:text="'Fecha de Nacimiento: ' + ${profesor.birthdate}">Fecha de
+                            Nacimiento:</p>
+                        <p class="card-text" th:text="'DNI: ' + ${profesor.DNI}">DNI:</p>
+                        <p class="card-text" th:text="'Correo Electrónico: ' + ${profesor.email}">Correo Electrónico:
+                        </p>
+                        <p class="card-text" th:text="'Número de Teléfono: ' + ${profesor.phoneNumber}">Número de
+                            Teléfono:</p>
+                        <a th:href="@{'/editarProfesor/' + ${profesor.DNI}}" class="btn btn-primary">Ver perfil</a>
+                        <a th:href="@{'/eliminarProfesor/' + ${profesor.DNI}}" class="btn btn-danger">Eliminar</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br>
+</body>
+
+<footer>
+    <br>
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="/img/logo.png" alt="IES N6 Logo">
+        </div>
+        <div class="contact-info">
+            <h4>IES N°6</h4>
+            <p><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> Dirección: Avenida Belgrano 456, Perico
+            </p>
+            <p><i class="fa-solid fa-phone" style="color: #ffffff;"></i> Teléfono: (388) 421-1576</p>
+
+            <p><i class="fa-regular fa-envelope" style="color: #ffffff;"></i> Correo Electrónico: ivan4912134@gmail.com
+            </p>
+        </div>
+    </div>
+</footer>
+
+</html>
